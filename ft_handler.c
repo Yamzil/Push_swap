@@ -6,7 +6,7 @@
 /*   By: yamzil <yamzil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 23:22:57 by yamzil            #+#    #+#             */
-/*   Updated: 2022/03/02 18:54:54 by yamzil           ###   ########.fr       */
+/*   Updated: 2022/03/09 21:38:39 by yamzil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int ft_checkarguments(char *str)
     i = 0;
     if (str[0] == '-' || str[0] == '+')
         i++;
-    if ((ft_atoi(str) > 2147483647) || (ft_atoi(str) < -2147483648))
+    if ((ft_atoi(str) >= 2147483647) || (ft_atoi(str) <= -2147483648))
         return(0);
     while(str[i])
     {
@@ -31,44 +31,27 @@ int ft_checkarguments(char *str)
     return(1);
 }
 
-int *ft_convertarg(int ac, char **av)
+int ft_checkduplicate(t_stack stack)
 {
-    int j;
-    int i;
-    int *arr;
+    int  i;
+    int     j;
+    int size;
     
-    arr = malloc(sizeof(int) * ac - 1);
-    if (!arr)
-        return(NULL);
-    j = 1;
     i = 0;
-    while(j < ac)
+    size = stack.bot_a;
+    while(i <= size)
     {
-        arr[i++] = ft_atoi(av[j]);
-        j++;
-    } 
-    return(arr);
-}
-
-int ft_checkduplicate(int *str)
-{
-    int	i;
-	int	j;
-	
-	i = 0;
-	while(str[i])
-	{
-		j = i + 1;
-		while(str[j])
-		{
-			if(str[i] == str[j])
-			{
-				return(1);
-				exit(1);
-			}
-			j++;
-		}
-		i++;
-	}
+        j = i + 1;
+        while(j < size)
+        {
+            if(stack.stack_a[j] == stack.stack_a[i])
+            {
+                write(2, "Dupliacte Error \n", 18);
+                return(1);
+            }
+            j++;
+        }
+        i++;
+    }
     return(0);
 }
