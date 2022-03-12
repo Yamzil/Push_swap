@@ -6,19 +6,19 @@
 /*   By: yamzil <yamzil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 22:19:16 by yamzil            #+#    #+#             */
-/*   Updated: 2022/03/09 22:31:54 by yamzil           ###   ########.fr       */
+/*   Updated: 2022/03/09 22:57:02 by yamzil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack ft_sorthfive(t_stack stack)
-{
-    int i;
+// t_stack ft_sorthfive(t_stack stack)
+// {
+//     int i;
 
-    i = 0;
-    while(i < 5)
-    {
+//     i = 0;
+//     while(i < 5)
+//     {
         
-    }
-}
+//     }
+// }

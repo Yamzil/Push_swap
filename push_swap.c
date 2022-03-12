@@ -6,12 +6,11 @@
 /*   By: yamzil <yamzil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 23:26:59 by yamzil            #+#    #+#             */
-/*   Updated: 2022/03/09 22:12:21 by yamzil           ###   ########.fr       */
+/*   Updated: 2022/03/12 10:13:47 by yamzil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 int main(int ac, char **av)
 {
     t_stack stack;
@@ -33,8 +32,15 @@ int main(int ac, char **av)
             write(2, "Arguments Error \n", 18);
         i++;
     }
-	if(!ft_sorted(stack, ac))
-    	stack = ft_sortthree(stack);
-		stack = ft_sorthfive(stack);
-        
+    // ft_sortthree(stack);
+    if (ft_sorted(stack, ac))
+        return(0);
+    i = 0;
+    while(i < stack.bot_a)
+    {
+        stack = ft_sort_table(ft_tmpstack(stack));
+        stack = ft_sorthundred(stack);
+        printf("[%d]\n", stack.stack_b[i]);
+        i++;
+    }
 }

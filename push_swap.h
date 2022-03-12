@@ -6,7 +6,7 @@
 /*   By: yamzil <yamzil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 16:07:57 by yamzil            #+#    #+#             */
-/*   Updated: 2022/03/09 21:34:43 by yamzil           ###   ########.fr       */
+/*   Updated: 2022/03/12 05:17:40 by yamzil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 #define PUSH_SWAP_H
 
 #include <stdlib.h>
+#include <unistd.h>
 #include <stdio.h>
-#include <unistd.h> 
 
 // Store and tracked stored data
 typedef struct s_stack{
 	int	*stack_a;
 	int	*stack_b;
+	int	*stack_tmp;
 	int	top_a;
 	int top_b;
 	int	bot_a;
@@ -53,9 +54,12 @@ t_stack	ft_reverse_rb(t_stack stack);
 t_stack ft_rra_rrb(t_stack stack);
 
 // Algo functions :
-void	ft_findlis(int str[], int n);
+void 	swap(int* xp, int* yp);
 int 	ft_sorted(t_stack stack, int ac);
+t_stack 	ft_sort_table(t_stack stack);
+t_stack ft_sorthundred(t_stack stack);
 t_stack	ft_fillstack(int ac, char **av, t_stack stack);
 t_stack	ft_sortthree(t_stack stack);
 t_stack ft_sorthfive(t_stack stack);
+t_stack ft_tmpstack(t_stack stack);
 #endif
