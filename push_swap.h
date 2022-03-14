@@ -6,7 +6,7 @@
 /*   By: yamzil <yamzil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 16:07:57 by yamzil            #+#    #+#             */
-/*   Updated: 2022/03/12 05:17:40 by yamzil           ###   ########.fr       */
+/*   Updated: 2022/03/14 01:27:06 by yamzil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,13 @@ t_stack	ft_reverse_rb(t_stack stack);
 t_stack ft_rra_rrb(t_stack stack);
 
 // Algo functions :
-void 	swap(int* xp, int* yp);
 int 	ft_sorted(t_stack stack, int ac);
+int 	ft_biggest(t_stack stack);
 t_stack 	ft_sort_table(t_stack stack);
 t_stack ft_sorthundred(t_stack stack);
 t_stack	ft_fillstack(int ac, char **av, t_stack stack);
 t_stack	ft_sortthree(t_stack stack);
 t_stack ft_sorthfive(t_stack stack);
 t_stack ft_tmpstack(t_stack stack);
+t_stack ft_send_a(t_stack stack);
 #endif

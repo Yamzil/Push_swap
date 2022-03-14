@@ -6,7 +6,7 @@
 /*   By: yamzil <yamzil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 19:38:16 by yamzil            #+#    #+#             */
-/*   Updated: 2022/03/12 07:49:41 by yamzil           ###   ########.fr       */
+/*   Updated: 2022/03/14 00:21:49 by yamzil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ t_stack ft_tmpstack(t_stack stack)
 {
     int     i;
     
-    stack.stack_tmp = malloc((stack.bot_a * sizeof(int)) + 1);
+    stack.stack_tmp = malloc((stack.bot_a + 1)* sizeof(int));
     i = 0;
-    while (i < stack.bot_a)
+    while (i <= stack.bot_a)
     {
         stack.stack_tmp[i] =  stack.stack_a[i];
         i++;

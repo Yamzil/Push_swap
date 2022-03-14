@@ -6,7 +6,7 @@
 /*   By: yamzil <yamzil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 23:26:59 by yamzil            #+#    #+#             */
-/*   Updated: 2022/03/12 10:13:47 by yamzil           ###   ########.fr       */
+/*   Updated: 2022/03/14 01:25:24 by yamzil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,12 @@ int main(int ac, char **av)
         i++;
     }
     // ft_sortthree(stack);
-    if (ft_sorted(stack, ac))
-        return(0);
-    i = 0;
-    while(i < stack.bot_a)
+    while(stack.bot_a)
     {
+        if (ft_sorted(stack, ac))
+            break;
         stack = ft_sort_table(ft_tmpstack(stack));
         stack = ft_sorthundred(stack);
-        printf("[%d]\n", stack.stack_b[i]);
-        i++;
     }
+    stack = ft_send_a(stack);
 }
