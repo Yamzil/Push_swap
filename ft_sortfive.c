@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fillstack.c                                     :+:      :+:    :+:   */
+/*   ft_sortfive.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yamzil <yamzil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 19:58:46 by yamzil            #+#    #+#             */
-/*   Updated: 2022/03/20 01:33:20 by yamzil           ###   ########.fr       */
+/*   Created: 2022/03/20 00:29:24 by yamzil            #+#    #+#             */
+/*   Updated: 2022/03/20 16:23:35 by yamzil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	ft_fillstack(int ac, char **av, t_stack stack)
+t_stack ft_sorthfive(t_stack stack)
 {
-	int		i;
-	int		j;
-	long	tmp;
-
-	stack.stack_a = malloc(sizeof(int) * (ac - 1));
-	// if (!stack.stack_a)
-	// 	exit(0);
-	i = 1;
-	j = -1;
-	while (i < ac)
+    int i;
+	int small;
+    
+    i = 0;
+	while(i < 2)
 	{
-		j++;
-		if (j == 0)
-			stack.top_a++;
-		tmp = ft_atoi(av[i]);
-		if (tmp < -2147483648 || tmp > 2147483647)
-			printf("Error\n");
-		stack.stack_a[j] = (int)tmp;
+    	small = ft_smallest(stack);
+		if (small < stack.bot_a / 2)
+		{
+			while(small--)
+				stack = ft_rotate_ra(stack);
+			stack = ft_push_pb(stack);
+		}
+		else
+		{
+			while(small++ <= stack.bot_a)
+				stack = ft_reverse_ra(stack);
+			stack = ft_push_pb(stack);
+		}
 		i++;
 	}
-	stack.bot_a = j;
+	stack = ft_sortthree(stack);
+	stack = ft_push_pa(stack);
+	stack = ft_push_pa(stack);
 	return (stack);
 }

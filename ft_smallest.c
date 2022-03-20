@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_biggest.c                                       :+:      :+:    :+:   */
+/*   ft_smallest.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yamzil <yamzil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/14 01:14:39 by yamzil            #+#    #+#             */
-/*   Updated: 2022/03/19 17:12:25 by yamzil           ###   ########.fr       */
+/*   Created: 2022/03/20 14:17:48 by yamzil            #+#    #+#             */
+/*   Updated: 2022/03/20 16:21:13 by yamzil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_biggest(t_stack stack)
+int	ft_smallest(t_stack stack)
 {
 	int	i;
-	int	biggest;
+	int smallest;
 
-	i = stack.top_b;
-	biggest = i;
-	while (i < stack.bot_b)
+	i = 0;
+	smallest = i;
+	
+	while(i < stack.bot_a)
 	{
-		if (stack.stack_b[i] > stack.stack_b[biggest])
-			biggest = i;
+		if (stack.stack_a[i] < stack.stack_a[smallest])
+			smallest = i;
 		i++;
 	}
-	return (biggest);
+	return(smallest);
 }

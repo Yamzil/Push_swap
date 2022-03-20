@@ -6,7 +6,7 @@
 /*   By: yamzil <yamzil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 00:14:14 by yamzil            #+#    #+#             */
-/*   Updated: 2022/03/09 20:57:55 by yamzil           ###   ########.fr       */
+/*   Updated: 2022/03/19 23:39:00 by yamzil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int ft_sorted(t_stack stack, int ac)
         if (stack.stack_a[i] < stack.stack_a[i + 1])
             i++;
         else
-            return(0);
+            return(1);
     }
-    return(1);
+    return(0);
 }

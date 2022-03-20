@@ -6,7 +6,7 @@
 /*   By: yamzil <yamzil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 23:29:28 by yamzil            #+#    #+#             */
-/*   Updated: 2022/03/13 22:45:52 by yamzil           ###   ########.fr       */
+/*   Updated: 2022/03/20 00:38:24 by yamzil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ t_stack	ft_push_pb(t_stack stack)
 	stack.stack_b[stack.top_b] = stack.stack_a[0];
 	while(i < stack.bot_a)
 	{
-	stack.stack_a[i] = stack.stack_a[i + 1];
+		stack.stack_a[i] = stack.stack_a[i + 1];
 		i++;
 	}
 	stack.bot_a--;
@@ -89,7 +89,7 @@ t_stack	ft_rotate_ra(t_stack stack)
 	tmp = stack.stack_a[0];
 	while(i < stack.bot_a)
 	{
-	stack.stack_a[i] =stack.stack_a[i + 1];
+		stack.stack_a[i] = stack.stack_a[i + 1];
 		i++;
 	}
 	stack.stack_a[stack.bot_a] = tmp;

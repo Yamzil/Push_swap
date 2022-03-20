@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sorthundred.c                                   :+:      :+:    :+:   */
+/*   ft_sortfivehundred.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yamzil <yamzil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/10 21:25:31 by yamzil            #+#    #+#             */
-/*   Updated: 2022/03/20 16:27:35 by yamzil           ###   ########.fr       */
+/*   Created: 2022/03/14 01:47:14 by yamzil            #+#    #+#             */
+/*   Updated: 2022/03/14 02:15:24 by yamzil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack ft_sorthundred(t_stack stack)
+t_stack ft_sortfivehundred(t_stack stack)
 {
     int i;
     int chunk;
     int div;
 
-    chunk = stack.bot_a / 3;
+    chunk = stack.bot_a / 5;
     div = chunk / 2;
     i = 0;
     while(i <= stack.bot_a)
