@@ -6,7 +6,7 @@
 /*   By: yamzil <yamzil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 00:29:24 by yamzil            #+#    #+#             */
-/*   Updated: 2022/03/20 16:23:35 by yamzil           ###   ########.fr       */
+/*   Updated: 2022/03/21 14:58:36 by yamzil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_stack ft_sorthfive(t_stack stack)
 		if (small < stack.bot_a / 2)
 		{
 			while(small--)
-				stack = ft_rotate_ra(stack);
+				stack = ft_rotate_ra(stack, 1);
 			stack = ft_push_pb(stack);
 		}
 		else

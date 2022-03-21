@@ -6,7 +6,7 @@
 /*   By: yamzil <yamzil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 21:25:31 by yamzil            #+#    #+#             */
-/*   Updated: 2022/03/20 16:27:35 by yamzil           ###   ########.fr       */
+/*   Updated: 2022/03/21 17:54:44 by yamzil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,33 +25,15 @@ t_stack ft_sorthundred(t_stack stack)
     {
         if (stack.stack_a[i] <= stack.stack_tmp[chunk])
         {
-    
-            if (i <= (stack.bot_a / 2))
-            {
-                while(i--)
-                    stack = ft_rotate_ra(stack);
-                if (stack.stack_a[0] >= stack.stack_tmp[div] || stack.top_b == stack.bot_b)
-                    stack = ft_push_pb(stack);
-                else 
-                {
-                    stack = ft_push_pb(stack);
-                    stack = ft_rotate_rb(stack);
-                }
-            }      
-            else
-            {
-                while(i++ <= stack.bot_a)
-                    stack = ft_reverse_ra(stack);
-                if (stack.stack_a[0] >= stack.stack_tmp[div] || stack.top_b == stack.bot_b)
-                    stack = ft_push_pb(stack);
-                else
-                {
-                    stack = ft_push_pb(stack);
-                    stack = ft_rotate_rb(stack);
-                }
-            }
-            i = -1;
-        }
+			while(i--)
+				stack = ft_rotate_ra(stack, 1);
+			if ((stack.stack_a[0] <= stack.stack_tmp[chunk]))
+				stack = ft_push_pb(stack);
+			if (stack.stack_a[0] > stack.stack_tmp[chunk] && stack.stack_b[stack.top_b] < stack.stack_tmp[div])
+				stack = ft_ra_rb(stack);
+			else if (stack.stack_b[stack.top_b] < stack.stack_tmp[div])
+				stack = ft_rotate_rb(stack , 1);
+		}
         i++;
     }
     return(stack);

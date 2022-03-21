@@ -6,7 +6,7 @@
 /*   By: yamzil <yamzil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 23:29:28 by yamzil            #+#    #+#             */
-/*   Updated: 2022/03/20 00:38:24 by yamzil           ###   ########.fr       */
+/*   Updated: 2022/03/21 14:56:09 by yamzil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ t_stack	ft_push_pb(t_stack stack)
 	return (stack);
 }
 
-t_stack	ft_rotate_ra(t_stack stack)
+t_stack	ft_rotate_ra(t_stack stack, int flag)
 {
 	int i;
 	int	tmp;
@@ -93,13 +93,14 @@ t_stack	ft_rotate_ra(t_stack stack)
 		i++;
 	}
 	stack.stack_a[stack.bot_a] = tmp;
-	write(1, "ra\n", 3);
+	if (flag == 1)
+		write(1, "ra\n", 3);
 	return (stack);
 
 }
 
 
-t_stack	ft_rotate_rb(t_stack stack)
+t_stack	ft_rotate_rb(t_stack stack, int flag)
 {
 	int	i;
 	int	tmp;
@@ -112,14 +113,15 @@ t_stack	ft_rotate_rb(t_stack stack)
 		i++;
 	}
 	stack.stack_b[stack.bot_b - 1] = tmp;
-	write(1, "rb\n", 3);
+	if (flag == 1)
+		write(1, "rb\n", 3);
 	return(stack);
 }
 
 t_stack ft_ra_rb(t_stack stack)
 {
-	stack = ft_rotate_ra(stack);
-	stack = ft_rotate_rb(stack);
+	stack = ft_rotate_ra(stack , 0);
+	stack = ft_rotate_rb(stack, 0);
 	write(1, "rr\n", 3);
 	return (stack);
 }

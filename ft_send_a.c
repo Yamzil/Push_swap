@@ -6,7 +6,7 @@
 /*   By: yamzil <yamzil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 01:17:10 by yamzil            #+#    #+#             */
-/*   Updated: 2022/03/14 01:42:55 by yamzil           ###   ########.fr       */
+/*   Updated: 2022/03/21 15:00:22 by yamzil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_stack ft_send_a(t_stack stack)
         else
         {
             while(bestmv_rb--)
-                stack = ft_rotate_rb(stack);
+                stack = ft_rotate_rb(stack, 1);
             stack = ft_push_pa(stack);
         }
     }
