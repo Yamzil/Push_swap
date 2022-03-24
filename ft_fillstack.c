@@ -6,7 +6,7 @@
 /*   By: yamzil <yamzil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 19:58:46 by yamzil            #+#    #+#             */
-/*   Updated: 2022/03/21 22:15:05 by yamzil           ###   ########.fr       */
+/*   Updated: 2022/03/24 01:49:26 by yamzil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,17 @@ t_stack	ft_fillstack(int ac, char **av, t_stack stack)
 {
 	int		i;
 	int		j;
-	long	tmp;
 
-	i = 1;
+	i = 0;
 	j = -1;
-	while (i < ac)
+	stack.stack_a = malloc(sizeof(int) * ac);
+	stack.top_a++;
+	while (av[i])
 	{
+		// if (j == 0)
+		stack.stack_a[i] = ft_atoi(av[i]);
 		j++;
-		if (j == 0)
-			stack.top_a++;
-		tmp = ft_atoi(av[i]);
-		if (tmp < -2147483648 || tmp > 2147483647)
-			write(2, "Error\n", 6);
-		stack.stack_a[j] = (int)tmp;
-		i++;
+		++i;
 	}
 	stack.bot_a = j;
 	return (stack);

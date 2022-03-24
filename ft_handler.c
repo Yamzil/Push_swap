@@ -6,41 +6,48 @@
 /*   By: yamzil <yamzil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 23:22:57 by yamzil            #+#    #+#             */
-/*   Updated: 2022/03/21 18:40:37 by yamzil           ###   ########.fr       */
+/*   Updated: 2022/03/24 01:00:40 by yamzil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_checkarguments(char *str)
+int	ft_checkarguments(char **av,int len)
 {
-	int	i;
+    int i;
+	int	j;
 
 	i = 0;
-	if (str[0] == '-' || str[0] == '+')
-		i++;
-	while (str[i])
-	{
-		if (ft_isdigit(str[i]))
-			i++;
-		else
-			return (0);
-	}
-	return (1);
+	j = 0;
+	while(i < len)
+    {
+        j = 0;
+        while(av[i][j])
+        {
+            if ((av[i][j] == '-' || av[i][j] == '+') && j == 0)
+                j++;
+            if (!ft_isdigit(av[i][j]))
+            {
+                write(1,"Error\n",6);
+                return(1);
+            }
+            j++;
+        }
+        i++;
+    }
+    return(0);
 }
 
 int	ft_checkduplicate(t_stack stack)
 {	
 	int	i;
 	int	j;
-	int	size;
 
 	i = 0;
-	size = stack.bot_a + 1;
-	while (i < size)
+	while (i < stack.bot_a)
 	{
 		j = i + 1;
-		while (j < size)
+		while (j < stack.bot_a)
 		{
 			if (stack.stack_a[j] == stack.stack_a[i])
 			{
@@ -52,4 +59,20 @@ int	ft_checkduplicate(t_stack stack)
 		i++;
 	}
 	return (0);
+}
+
+int ft_checkint(int len, char **av)
+{
+	int i = 0;
+
+	while(i < len)
+	{
+		if (ft_atoi(av[i]) > 2147483647 && ft_atoi(av[i]) < -2147483648)
+		{
+			write(1,"Error\n", 6);
+			return(1);
+		}
+		i++;
+	}
+	return(0);
 }

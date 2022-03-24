@@ -6,7 +6,7 @@
 #    By: yamzil <yamzil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/13 14:02:13 by yamzil            #+#    #+#              #
-#    Updated: 2022/03/21 23:07:44 by yamzil           ###   ########.fr        #
+#    Updated: 2022/03/24 00:47:59 by yamzil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,10 @@ SRC =	libft/ft_atoi.c \
 		libft/ft_isdigit.c \
 		libft/ft_strlen.c \
 		libft/ft_putendl_fd.c \
+		libft/ft_strdup.c \
+		libft/ft_split.c \
+		libft/ft_substr.c \
+		libft/ft_strchr.c \
 		push_swap.c \
 		ft_handler.c \
 		ft_smallest.c \
@@ -31,6 +35,8 @@ SRC =	libft/ft_atoi.c \
 		ft_tmpstack.c  \
 		ft_sorthundred.c \
 		ft_send_a.c \
+		ft_sort.c \
+		ft_parsing.c \
 		ft_sortfivehundred.c \
 		ft_free.c \
 		
