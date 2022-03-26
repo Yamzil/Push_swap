@@ -6,34 +6,33 @@
 /*   By: yamzil <yamzil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 22:50:26 by yamzil            #+#    #+#             */
-/*   Updated: 2022/03/24 01:11:10 by yamzil           ###   ########.fr       */
+/*   Updated: 2022/03/26 07:32:32 by yamzil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-t_stack ft_sort_table(t_stack stack)
+t_stack	ft_sort_table(t_stack s)
 {
-    int i;
-    int j;
-    int tmp;
+	int	i;
+	int	j;
+	int	tmp;
 
-    i = 0;
-    while (i < stack.bot_a)
-    {
-        j = 0;
-        while(j < stack.bot_a)
-        {
-            if (stack.stack_tmp[j] > stack.stack_tmp[j + 1])
-                {
-                   tmp = stack.stack_tmp[j];
-                   stack.stack_tmp[j] = stack.stack_tmp[j + 1];
-                   stack.stack_tmp[j + 1] = tmp;
-               }
-            j++;
-        }
-        i++;
-    }
-    return(stack);
+	i = 0;
+	while (i < s.bot_a)
+	{
+		j = 0;
+		while (j < s.bot_a)
+		{
+			if (s.s_tmp[j] > s.s_tmp[j + 1])
+			{
+				tmp = s.s_tmp[j];
+				s.s_tmp[j] = s.s_tmp[j + 1];
+				s.s_tmp[j + 1] = tmp;
+			}
+			j++;
+		}
+		i++;
+	}
+	return (s);
 }

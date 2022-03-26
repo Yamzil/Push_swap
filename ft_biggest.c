@@ -6,22 +6,22 @@
 /*   By: yamzil <yamzil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 01:14:39 by yamzil            #+#    #+#             */
-/*   Updated: 2022/03/19 17:12:25 by yamzil           ###   ########.fr       */
+/*   Updated: 2022/03/25 21:12:12 by yamzil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_biggest(t_stack stack)
+int	ft_biggest(t_stack s)
 {
 	int	i;
 	int	biggest;
 
-	i = stack.top_b;
+	i = s.top_b;
 	biggest = i;
-	while (i < stack.bot_b)
+	while (i < s.bot_b)
 	{
-		if (stack.stack_b[i] > stack.stack_b[biggest])
+		if (s.s_b[i] > s.s_b[biggest])
 			biggest = i;
 		i++;
 	}

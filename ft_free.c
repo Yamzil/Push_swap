@@ -6,15 +6,28 @@
 /*   By: yamzil <yamzil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 21:10:20 by yamzil            #+#    #+#             */
-/*   Updated: 2022/03/21 22:06:42 by yamzil           ###   ########.fr       */
+/*   Updated: 2022/03/26 07:38:55 by yamzil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack ft_free(t_stack stack)
+t_stack	ft_free(t_stack s)
 {
-    free(stack.stack_a);
-    free(stack.stack_b);
-    return (stack);
+	free(s.s_a);
+	free(s.s_b);
+	return (s);
+}
+
+void	free_double(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
 }

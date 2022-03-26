@@ -6,60 +6,79 @@
 /*   By: yamzil <yamzil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 18:02:18 by yamzil            #+#    #+#             */
-/*   Updated: 2022/03/21 23:04:15 by yamzil           ###   ########.fr       */
+/*   Updated: 2022/03/26 11:28:25 by yamzil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack ft_checker(char *arguments, t_stack stack)
-{	
-	if (ft_strncmp("sa", arguments))
-		stack = ft_swap_a(stack);
-	else if (ft_strncmp("sb", arguments))
-		stack = ft_swap_b(stack);
-	else if (ft_strncmp("ss", arguments))
-		stack = ft_swap_ss(stack);
-	else if (ft_strncmp("pa", arguments))
-		stack = ft_push_pa(stack);
-	else if (ft_strncmp("pb", arguments))
-		stack = ft_push_pb(stack);
-	else if (ft_strncmp("ra", arguments))
-		stack = ft_rotate_ra(stack, 0);
-	else if (ft_strncmp("rb", arguments))
-		stack = ft_rotate_rb(stack, 0);
-	else if (ft_strncmp("rr", arguments))
-		stack = ft_ra_rb(stack);
-	else if (ft_strncmp("rra", arguments))
-		stack = ft_reverse_ra(stack);
-	else if (ft_strncmp("rrb", arguments))
-		stack = ft_reverse_rb(stack);
-	else if (ft_strncmp("rrr", arguments))
-		stack = ft_rra_rrb(stack);
-	return (stack);
+t_stack	ft_checker(char *arguments, t_stack s)
+{
+	if (!ft_strncmp("sa", arguments))
+		s = ft_swap_a(s, 0);
+	else if (!ft_strncmp("sb", arguments))
+		s = ft_swap_b(s, 0);
+	else if (!ft_strncmp("ss", arguments))
+		s = ft_swap_ss(s);
+	else if (!ft_strncmp("pa", arguments))
+		s = ft_push_pa(s, 0);
+	else if (!ft_strncmp("pb", arguments))
+		s = ft_push_pb(s, 0);
+	else if (!ft_strncmp("ra", arguments))
+		s = ft_rotate_ra(s, 0);
+	else if (!ft_strncmp("rb", arguments))
+		s = ft_rotate_rb(s, 0);
+	else if (!ft_strncmp("rr", arguments))
+	s = ft_ra_rb(s);
+	else if (!ft_strncmp("rra", arguments))
+		s = ft_reverse_ra(s, 0);
+	else if (!ft_strncmp("rrb", arguments))
+		s = ft_reverse_rb(s, 0);
+	else if (!ft_strncmp("rrr", arguments))
+		s = ft_rra_rrb(s);
+	else
+		ft_error();
+	return (s);
 }
 
-int main(int ac, char **av)
+t_stack	sort_norm(int ac, char **av, t_stack s)
 {
-	t_stack stack;
-	char 	*arguments;
+	char	**tab;
+
+	tab = ft_parsing(av, ac);
+	if (ft_sorted(s))
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
+	free_double(tab);
+	return (s);
+}
+
+int	main(int ac, char **av)
+{
+	t_stack	s;
+	char	*arguments;
+	char	**tab;
 	int		i;
-	
-	stack.stack_a = malloc(sizeof(int) * (ac - 1));
-    stack.stack_b = malloc(sizeof(int) * (ac - 1));
-    stack.top_a = -1;
-    stack.top_b = ac - 1;
-    stack.bot_a = -1;
-    stack.bot_b = ac - 1;
+
 	i = 0;
-	stack = ft_fillstack(ac, av, stack);
+	tab = ft_parsing(av, ac);
+	s.top_a = -1;
+	s.top_b = ft_lenparsing(av, ac);
+	s.bot_a = -1;
+	s.bot_b = ft_lenparsing(av, ac);
+	s.s_b = malloc (sizeof (int) * (ft_lenparsing(av, ac)));
+	s = ft_fillstack (ft_lenparsing(av, ac), tab, s);
+	ft_checker_norm(s, ac, av);
+	ft_sorted(s);
 	arguments = get_next_line(0);
-	if (ac > 1)
+	while (arguments)
 	{
-		while(arguments)
-		{
-			ft_checker(arguments, stack);
-			get_next_line(0);
-		}
+		s = ft_checker(arguments, s);
+		free(arguments);
+		arguments = get_next_line(0);
 	}
+	free(arguments);
+	s = sort_norm(ac, av, s);
+	free_double(tab);
 }

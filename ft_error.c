@@ -1,42 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sortfive.c                                      :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yamzil <yamzil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/20 00:29:24 by yamzil            #+#    #+#             */
-/*   Updated: 2022/03/25 21:26:00 by yamzil           ###   ########.fr       */
+/*   Created: 2022/03/24 18:11:06 by yamzil            #+#    #+#             */
+/*   Updated: 2022/03/26 09:07:53 by yamzil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	ft_sorthfive(t_stack s)
+void	ft_error(void)
 {
-	int	i;
-	int	small;
-
-	i = 0;
-	while (i < 2)
-	{
-		small = ft_smallest(s);
-		if (small <= s.bot_a / 2)
-		{	
-			while (small--)
-				s = ft_rotate_ra(s, 1);
-			s = ft_push_pb(s, 1);
-		}
-		else
-		{
-			while (small++ <= s.bot_a)
-				s = ft_reverse_ra(s, 1);
-			s = ft_push_pb(s, 1);
-		}
-		i++;
-	}
-	s = ft_sortthree(s);
-	s = ft_push_pa(s, 1);
-	s = ft_push_pa(s, 1);
-	return (s);
+	write(2, "Error\n", 6);
+	exit(1);
 }
